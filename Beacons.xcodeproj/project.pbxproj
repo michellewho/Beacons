@@ -15,6 +15,7 @@
 		32E3F17B1D36D03B004DCC69 /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E3F17A1D36D03B004DCC69 /* SearchResultsController.swift */; };
 		32E3F17D1D384A45004DCC69 /* PlacesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E3F17C1D384A45004DCC69 /* PlacesHelper.swift */; };
 		32E3F1821D397DA7004DCC69 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E3F1811D397DA7004DCC69 /* Config.swift */; };
+		32E3F1881D3D3C6F004DCC69 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E3F1871D3D3C6F004DCC69 /* CoreLocation.framework */; };
 		A1CA8B5E7B22B7B36F93DC30 /* Pods_Beacons.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0177E66BB2DAB0BCC547CF53 /* Pods_Beacons.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		32E3F17A1D36D03B004DCC69 /* SearchResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
 		32E3F17C1D384A45004DCC69 /* PlacesHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlacesHelper.swift; path = ../PlacesHelper.swift; sourceTree = "<group>"; };
 		32E3F1811D397DA7004DCC69 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		32E3F1871D3D3C6F004DCC69 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		AD2E5AACADAF669902A5F073 /* Pods-Beacons.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beacons.release.xcconfig"; path = "Pods/Target Support Files/Pods-Beacons/Pods-Beacons.release.xcconfig"; sourceTree = "<group>"; };
 		B17225335BBDC2798ED6080B /* Pods-Beacons.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beacons.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Beacons/Pods-Beacons.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -39,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32E3F1881D3D3C6F004DCC69 /* CoreLocation.framework in Frameworks */,
 				A1CA8B5E7B22B7B36F93DC30 /* Pods_Beacons.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -49,6 +52,7 @@
 		292D20DA0AB7CACE67D896E4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				32E3F1871D3D3C6F004DCC69 /* CoreLocation.framework */,
 				0177E66BB2DAB0BCC547CF53 /* Pods_Beacons.framework */,
 			);
 			name = Frameworks;
@@ -140,6 +144,12 @@
 				TargetAttributes = {
 					32E3F1641D35984A004DCC69 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = KF24937E72;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -347,10 +357,13 @@
 			baseConfigurationReference = B17225335BBDC2798ED6080B /* Pods-Beacons.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Beacons/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appbuilder.Beacons;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -359,10 +372,13 @@
 			baseConfigurationReference = AD2E5AACADAF669902A5F073 /* Pods-Beacons.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Beacons/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appbuilder.Beacons;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
