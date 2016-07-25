@@ -17,9 +17,7 @@ protocol LocateOnTheMap{
 
 class SearchResultsController: UITableViewController {
 
-    
-    
-    
+
     var searchResults: [String]!
     var delegate: LocateOnTheMap!
 
