@@ -80,6 +80,8 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
     func setupLocationManager() {
         // For Current Location
         self.locationManager.requestWhenInUseAuthorization()
@@ -144,33 +146,36 @@ extension ViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations myLocation: [CLLocation]) {
-        myCoordinates[0] = ((mapView.myLocation?.coordinate.latitude)!)
-        myCoordinates[1] = ((mapView.myLocation?.coordinate.longitude)!)
         
-        let location = CLLocation(latitude: myCoordinates[0], longitude: myCoordinates[1])
-        CLGeocoder().reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
+        if myLocation.count > 1 {
+            myCoordinates[0] = ((mapView.myLocation?.coordinate.latitude)!)
+            myCoordinates[1] = ((mapView.myLocation?.coordinate.longitude)!)
             
-            // Place details
-            var placeMark: CLPlacemark!
-            placeMark = placemarks?[0]
-            
-            // Location name
-            if let locationName = placeMark.addressDictionary!["Name"] as? NSString {
-                self.streetAddress = locationName as String
-            }
-            
-            // City
-            if let city = placeMark.addressDictionary!["City"] as? NSString {
-                self.currentCity = city as String
-                print(self.currentCity)
-            }
-            
-            // Country
-            if let country = placeMark.addressDictionary!["Country"] as? NSString {
-                self.currentCountry = country as String
-            }
-        })
-       self.locationManager.stopUpdatingLocation()
+            let location = CLLocation(latitude: myCoordinates[0], longitude: myCoordinates[1])
+            CLGeocoder().reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
+                
+                // Place details
+                var placeMark: CLPlacemark!
+                placeMark = placemarks?[0]
+                
+                // Location name
+                if let locationName = placeMark.addressDictionary!["Name"] as? NSString {
+                    self.streetAddress = locationName as String
+                }
+                
+                // City
+                if let city = placeMark.addressDictionary!["City"] as? NSString {
+                    self.currentCity = city as String
+                    print(self.currentCity)
+                }
+                
+                // Country
+                if let country = placeMark.addressDictionary!["Country"] as? NSString {
+                    self.currentCountry = country as String
+                }
+            })
+            self.locationManager.stopUpdatingLocation()
+        }
     }
     
 }
@@ -186,8 +191,7 @@ extension ViewController: LocateOnTheMap {
             let camera  = GMSCameraPosition.cameraWithLatitude(lat, longitude: lon, zoom: 15)
             self.mapView.camera = camera
             
-            //            marker.title = title
-            //            marker.map = self.mapView
+
         }
     }
 }
@@ -195,48 +199,17 @@ extension ViewController: LocateOnTheMap {
 extension ViewController: GMSMapViewDelegate {
     func mapView(mapView: GMSMapView, didTapInfoWindowOfMarker marker: GMSMarker) {
         let selectedPlaceId = sfPlaces[(mapView.selectedMarker?.title)!]![0]
-        //print(selectedPlaceId)
+//        var arrayOfPhotoReferences = [String]()
         
-        let apiToContact = "https://maps.googleapis.com/maps/api/place/details/json?&parameters"
-
-        let key = API_KEY
-        
-        Alamofire.request(.GET, apiToContact, parameters: ["placeid": selectedPlaceId,"key": key]).validate().responseJSON() {
+        AlamofireHelper.getPlaceInfo(selectedPlaceId) { (placeDetail) in
+            let controller = self.storyboard?.instantiateViewControllerWithIdentifier("PlaceDetailsController") as? PlaceDetailsController
+            controller?.placeDetails = placeDetail
+            self.presentViewController(controller!, animated: true, completion: nil)
             
-            response in
-            switch response.result {
-            case .Success:
-                if let value = response.result.value {
-                    let json = JSON(value)
-                    
-                    print(json)
-                    
-                    // Gets place details from JSON file
-                    var arrayOfPhotoReferences = [String]()
-                    let placeName = json["result"]["name"].stringValue
-                    let placeHours = json["result"]["opening_hours"]["weekday_text"].stringValue
-                    let placeAddress = json["result"]["formatted_address"].stringValue
-                    let placeNumber = json["result"]["formatted_phone_number"].stringValue
-                    let placeWebsite = json["result"]["website"].stringValue
-                    let placeRating = json["result"]["rating"].doubleValue
-                    
-                    for (reference, subJson) in json["result"]["photos"] {
-                        if let photo_reference = subJson["photo_reference"].string {
-                            arrayOfPhotoReferences.append(photo_reference)
-                        }
-                    }
-                    
-                    let controller = self.storyboard?.instantiateViewControllerWithIdentifier("PlaceDetailsController") as? PlaceDetailsController
-                    let placeDetail = PlaceDetails(name: placeName, hours: placeHours, address: placeAddress, phoneNumber: placeNumber, website: placeWebsite, rating: placeRating, references: arrayOfPhotoReferences)
-                    
-                    controller?.placeDetails = placeDetail
-                    self.presentViewController(controller!, animated: true, completion: nil)
-                    
-                    
-                }
-            case .Failure(let error):
-                print(error)
-            }
+            AlamofireHelper.getPhotos(placeDetail.references, completionHandler: { (arrayOfPhotos) in
+                //print(arrayOfPhotos)
+            })
+            
         }
     }
 }

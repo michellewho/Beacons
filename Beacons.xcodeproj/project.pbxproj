@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32562F591D46DE14003F3F3E /* PhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32562F581D46DE14003F3F3E /* PhotoViewCell.swift */; };
 		32E3F1691D35984A004DCC69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E3F1681D35984A004DCC69 /* AppDelegate.swift */; };
 		32E3F16B1D35984A004DCC69 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E3F16A1D35984A004DCC69 /* ViewController.swift */; };
 		32E3F16E1D35984A004DCC69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32E3F16C1D35984A004DCC69 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		0177E66BB2DAB0BCC547CF53 /* Pods_Beacons.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Beacons.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		32562F581D46DE14003F3F3E /* PhotoViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoViewCell.swift; path = ../PhotoViewCell.swift; sourceTree = "<group>"; };
 		32E3F1651D35984A004DCC69 /* Beacons.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beacons.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32E3F1681D35984A004DCC69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32E3F16A1D35984A004DCC69 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,7 +37,7 @@
 		32E3F17C1D384A45004DCC69 /* PlacesHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlacesHelper.swift; path = ../PlacesHelper.swift; sourceTree = "<group>"; };
 		32E3F1811D397DA7004DCC69 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		32E3F1871D3D3C6F004DCC69 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		32E3F1891D413820004DCC69 /* PlaceDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceDetails.swift; sourceTree = "<group>"; };
+		32E3F1891D413820004DCC69 /* PlaceDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceDetails.swift; path = ../PlaceDetails.swift; sourceTree = "<group>"; };
 		32E3F18B1D413937004DCC69 /* PlaceDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceDetailsController.swift; sourceTree = "<group>"; };
 		32E3F18D1D46782F004DCC69 /* AlamofireHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireHelper.swift; sourceTree = "<group>"; };
 		AD2E5AACADAF669902A5F073 /* Pods-Beacons.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beacons.release.xcconfig"; path = "Pods/Target Support Files/Pods-Beacons/Pods-Beacons.release.xcconfig"; sourceTree = "<group>"; };
@@ -87,8 +89,8 @@
 			children = (
 				32E3F1801D3968CB004DCC69 /* HelperFiles */,
 				32E3F16A1D35984A004DCC69 /* ViewController.swift */,
+				32562F581D46DE14003F3F3E /* PhotoViewCell.swift */,
 				32E3F18B1D413937004DCC69 /* PlaceDetailsController.swift */,
-				32E3F1891D413820004DCC69 /* PlaceDetails.swift */,
 				32E3F17A1D36D03B004DCC69 /* SearchResultsController.swift */,
 				32E3F1681D35984A004DCC69 /* AppDelegate.swift */,
 				32E3F16C1D35984A004DCC69 /* Main.storyboard */,
@@ -105,6 +107,7 @@
 			children = (
 				32E3F17C1D384A45004DCC69 /* PlacesHelper.swift */,
 				32E3F18D1D46782F004DCC69 /* AlamofireHelper.swift */,
+				32E3F1891D413820004DCC69 /* PlaceDetails.swift */,
 			);
 			path = HelperFiles;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 			files = (
 				32E3F18E1D46782F004DCC69 /* AlamofireHelper.swift in Sources */,
 				32E3F18A1D413821004DCC69 /* PlaceDetails.swift in Sources */,
+				32562F591D46DE14003F3F3E /* PhotoViewCell.swift in Sources */,
 				32E3F16B1D35984A004DCC69 /* ViewController.swift in Sources */,
 				32E3F17D1D384A45004DCC69 /* PlacesHelper.swift in Sources */,
 				32E3F18C1D413937004DCC69 /* PlaceDetailsController.swift in Sources */,

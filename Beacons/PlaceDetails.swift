@@ -16,5 +16,8 @@ struct PlaceDetails {
     let website: String
     let rating: Double
     let references: [String]
+    let lat: Double
+    let long: Double
+    var isVisited: Bool
 }
 
