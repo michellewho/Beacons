@@ -12,5 +12,6 @@ source 'https://github.com/CocoaPods/Specs.git'
 	pod 'Alamofire', '~> 3.4'
 	pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 	pod 'AlamofireImage', '~> 2.0'
+    pod 'RealmSwift'
 
 end

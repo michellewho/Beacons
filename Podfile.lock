@@ -3,12 +3,18 @@ PODS:
   - AlamofireImage (2.4.0):
     - Alamofire (~> 3.3)
   - GoogleMaps (1.13.2)
+  - Realm (1.0.1):
+    - Realm/Headers (= 1.0.1)
+  - Realm/Headers (1.0.1)
+  - RealmSwift (1.0.1):
+    - Realm (= 1.0.1)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
   - Alamofire (~> 3.4)
   - AlamofireImage (~> 2.0)
   - GoogleMaps
+  - RealmSwift
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
 EXTERNAL SOURCES:
@@ -24,8 +30,10 @@ SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
   AlamofireImage: 87408b652e0f5ae5fe364035f15aea8b9b24c77e
   GoogleMaps: b20a103ff307f58392e603cf142e59d7e30374c1
+  Realm: 2e15e39d35b08abb529e212ed5d8af107b5236c8
+  RealmSwift: d73ea2af08c3676dbdd5e4b669651a0f492162a4
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: df09e510ae5fbdead7fe0d81f4ddc23f6366bd0b
+PODFILE CHECKSUM: 4445ba48b9637b151f5a054e0f3ac612d5a441bf
 
 COCOAPODS: 1.0.1

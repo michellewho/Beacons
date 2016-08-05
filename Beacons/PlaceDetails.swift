@@ -9,6 +9,7 @@
 import Foundation
 
 struct PlaceDetails {
+    let placeId: String
     let name: String
     let hours: String
     let address: String

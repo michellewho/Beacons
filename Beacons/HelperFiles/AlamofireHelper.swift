@@ -28,6 +28,7 @@ struct AlamofireHelper {
                    //print(json)
                     
                     // Gets place details from JSON file
+                    let placeId = json["result"]["place_id"].stringValue
                     var arrayOfPhotoReferences = [String]()
                     let placeName = json["result"]["name"].stringValue
                     let placeHours = json["result"]["opening_hours"]["weekday_text"].stringValue
@@ -44,7 +45,7 @@ struct AlamofireHelper {
                         }
                     }
 
-                    let placeDetail = PlaceDetails(name: placeName, hours: placeHours, address: placeAddress, phoneNumber: placeNumber, website: placeWebsite, rating: placeRating, references: arrayOfPhotoReferences, lat: placeLat, long: placeLong, isVisited: false)
+                    let placeDetail = PlaceDetails(placeId: placeId, name: placeName, hours: placeHours, address: placeAddress, phoneNumber: placeNumber, website: placeWebsite, rating: placeRating, references: arrayOfPhotoReferences, lat: placeLat, long: placeLong, isVisited: false)
                     
                     completionHandler(placeDetail: placeDetail)
                 }
